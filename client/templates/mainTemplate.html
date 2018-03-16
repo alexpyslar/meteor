@@ -1,0 +1,34 @@
+<template name="mainTemplate">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Books</h3>
+                </div>
+                {{#if isNotEmpty}}
+                    <div class="list-group">
+                        {{#each books }}
+                            {{> bookEntry }}
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <div class="empty-set">
+                        <p>Content not found</p>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="bookEntry">
+    <a href="{{pathFor 'editBookPage'}}" class="list-group-item">
+        <div class='row'>
+            <div class="col-md-12">
+                <p><strong>Book name:</strong> {{name}}</p>
+                <p><strong>Book genre:</strong> {{genre}}</p>
+                <p><strong>Page count:</strong> {{pageCount}}</p>
+            </div>
+        </div>
+    </a>
+</template>
